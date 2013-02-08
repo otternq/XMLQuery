@@ -4,7 +4,22 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>
 
     <style type="text/css">
+#editor { 
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width:500px;
+        height: 500px;
+    }
 
+    #graph {
+        position:absolute;
+        top: 0px;
+        left: 525px;
+    }
+    
     .node {
       stroke: #fff;
       stroke-width: 2px;
@@ -19,6 +34,16 @@
 
     <body>
             <div id="data"></div>
+
+            <div id="editor"></div>
+            
+            <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+</script>
+            
             <div id="graph"></div>
             <script type="text/javascript">
 
@@ -49,7 +74,13 @@
 
             function randomNode() {
                 if (data.length >= 5) return clearInterval(timer);
+                    
+                    addNode(~~(Math.random() * data.length), "test");
 
+                    return true;
+
+
+                    
                   // Add a new datum to a random parent.
                   var d = {id: data.length, content: 'test'}, parent = data[~~(Math.random() * data.length)];
                   if (parent.children) parent.children.push(d); else parent.children = [d];
@@ -60,6 +91,8 @@
                 var d = {id: data.length, content: tempContent}, parent = data[parent];
                 if (parent.children) parent.children.push(d); else parent.children = [d];
                 data.push(d);
+
+                editor.getSession().setValue(JSON.stringify(simpleJSON(data), undefined, 2));
             }
 
                 
@@ -125,6 +158,43 @@
                 console.log("Clicked = id:" + d.id + " content: " + d.content );
                 addNode(d.id, "Temp Temp Temp");
                 update();
+            
+
+                console.log(data);
+            }
+
+            function simpleJSON(d3Data) {
+                var data = getMinData(d3Data[0]);
+                
+                data.children = simpleJSONAux(d3Data[0].children);
+                console.log(data);
+                
+                return data;
+            }
+
+            function simpleJSONAux(d3Data) {
+                var data = Array(); 
+                for (var i = 0; i < d3Data.length; i++) {
+                    
+                    data[i] = getMinData(d3Data[i]);
+
+                    if (d3Data[i].children) {
+                        data[i].children = simpleJSONAux(d3Data[i].children); 
+                    }
+                    
+                }
+                
+                return data;
+            }
+
+
+            function getMinData(data) {
+                if (data) {
+                    return {
+                        id: data.id,
+                        content: data.content
+                    }
+                } return undefined;
             }
 
     </script>
