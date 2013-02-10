@@ -4,48 +4,48 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>
 
     <style type="text/css">
-#editor { 
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width:500px;
-        height: 500px;
-    }
+        #editor { 
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width:500px;
+            height: 100%;
+        }
 
-    #graph {
-        position:absolute;
-        top: 0px;
-        left: 525px;
-    }
-    
-    .node {
-      stroke: #fff;
-      stroke-width: 2px;
-    }
+        #graph {
+            position:absolute;
+            top: 0px;
+            left: 525px;
+        }
+        
+        .node {
+          stroke: #fff;
+          stroke-width: 2px;
+        }
 
-    .link {
-      fill: none;
-      stroke: #000;
-    }
+        .link {
+          fill: none;
+          stroke: #000;
+        }
 
     </style>
 
     <body>
-            <div id="data"></div>
+        <div id="data"></div>
 
-            <div id="editor"></div>
-            
-            <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/javascript");
-</script>
-            
-            <div id="graph"></div>
-            <script type="text/javascript">
+        <div id="editor"></div>
+        
+        <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+            var editor = ace.edit("editor");
+            editor.setTheme("ace/theme/monokai");
+            editor.getSession().setMode("ace/mode/javascript");
+        </script>
+        
+        <div id="graph"></div>
+        <script type="text/javascript">
 
             var w = 960,
             h = 500,
