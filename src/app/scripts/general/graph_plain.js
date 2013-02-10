@@ -1,31 +1,4 @@
-function start() {
 
-  var w = 960,
-  h = 500,
-  root = {id: 0, content: 'root content'},
-  data = [root],
-  tree = d3.layout.tree().size([w - 20, h - 20]),
-  diagonal = d3.svg.diagonal(),
-  duration = 750,
-  timer = setInterval(update, duration);
-
-  var vis = d3.select("#graph").append("svg")
-      .attr("width", w)
-      .attr("height", h)
-      .append("g")
-      .attr("transform", "translate(10, 10)");
-
-  vis.selectAll("circle")
-      .data(tree(root))
-    .enter().append("circle")
-      .attr("class", "node")
-      .attr("r", 3.5)
-      .attr("cx", x)
-      .attr("cy", y)
-      .on("click", click)
-      .on("mouseover", mouseover);
-      
-}
 
 function randomNode() {
     if (data.length >= 5) return clearInterval(timer);
@@ -47,7 +20,7 @@ function addNode(parent, tempContent) {
     if (parent.children) parent.children.push(d); else parent.children = [d];
     data.push(d);
 
-    editor.getSession().setValue(JSON.stringify(simpleJSON(data), undefined, 2));
+    //editor.getSession().setValue(JSON.stringify(simpleJSON(data), undefined, 2));
 }
 
     

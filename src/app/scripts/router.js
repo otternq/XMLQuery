@@ -9,9 +9,9 @@ define([
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Default
-      //'editor/:type': 'editor',
+      'editor/:type': 'editor',
       'about': 'about',
-      '*actions': 'editor'
+      '*actions': 'defaultAction'
     }
   });
 

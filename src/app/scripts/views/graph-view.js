@@ -19,8 +19,9 @@ define([
 
 			this.$el.append(renderer);
 
-			var graph = new Graph();
-			graph.start();
+			/*var graph = new Graph();
+			graph.init();
+			graph.run();*/
 
 		}
 
