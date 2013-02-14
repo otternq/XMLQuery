@@ -9,9 +9,9 @@ define([
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Default
-      'editor/:type': 'editor',
+      //'editor/:type': 'editor',
       'about': 'about',
-      '*actions': 'defaultAction'
+      '*actions': 'editor'
     }
   });
 
@@ -21,10 +21,14 @@ define([
     
     app_router.on('route:editor', function(type){
 
+      var type = "visual";
+
       var menuView = new MenuView();
       menuView.render(type);
 
-      if (1==1) {
+      
+
+      if (type == "visual") {
 
         var graphView = new GraphView();
         graphView.render();

@@ -7,7 +7,7 @@ define([
   // which will be used as our views primary template
   'mustache',
   'graph',
-  'text!/templates/graph.html'
+  'text!/templates/graph-bad.html'
 ], function($, _, Backbone, Mustache, Graph, graphTemplate){
 	
 	var MenuView = Backbone.View.extend({
@@ -19,9 +19,7 @@ define([
 
 			this.$el.append(renderer);
 
-			/*var graph = new Graph();
-			graph.init();
-			graph.run();*/
+			
 
 		}
 

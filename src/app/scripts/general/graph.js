@@ -28,8 +28,13 @@ define([
                 .attr("r", 3.5)
                 .attr("cx", this.x)
                 .attr("cy", this.y)
-                .on("click", function(){this.click(this)})
-                .on("mouseover", this.mouseover(this));
+                .on("click", 
+
+                	function (env) {
+			            update.call(this, env);
+			        }
+
+                );
 
 		},
 
@@ -38,7 +43,7 @@ define([
 
 
 			
-            this.timer = setInterval(this.update(this), this.duration);
+            //this.timer = setInterval(this.update(this), this.duration);
 
             
 
@@ -89,7 +94,7 @@ define([
               .attr("cx", function(d) { return d.parent.x0; })
               .attr("cy", function(d) { return d.parent.y0; })
               //.style("fill", function(d) { return d.children ? "lightsteelblue" : "#fff"; })
-              .on("click", function() {this.click(this)})
+              .on("click", this.click(this))
               .on("mouseover", this.mouseover);
 
             // Transition nodes to their new position.
