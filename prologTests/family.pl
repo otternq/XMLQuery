@@ -1,13 +1,11 @@
-siblings(X,Y) :- parent(Z, X), parent(Z, Y), \+ X=Y.
-
-open_wordnet :-
+open_db :-
         odbc_connect('mysql:dbname=prolog_test;host=localhost', _,
                      [ user('prologuser'),
                        password('prologpass'),
-                       alias(family),
+                       alias(localhost),
                        open(once)
                      ]).
 
+children(X) :-
+        odbc_query(localhost, 'SELECT (lemma) FROM children',X).
 
-%children(X) :-
-%        odbc_query(family, 'SELECT (lemma) FROM children',X).
