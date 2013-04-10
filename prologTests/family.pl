@@ -1,11 +1,12 @@
-open_db :-
-        odbc_connect('mysql:dbname=prolog_test;host=localhost', _,
+open_wordnet :-
+        odbc_connect('prologtest', _,
                      [ user('prologuser'),
                        password('prologpass'),
-                       alias(localhost),
+                       alias(prologa),
                        open(once)
                      ]).
 
+
 children(X) :-
-        odbc_query(localhost, 'SELECT (lemma) FROM children',X).
+        odbc_query(prologa, 'SELECT * FROM children',X).
 
