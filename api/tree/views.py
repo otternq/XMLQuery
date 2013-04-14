@@ -1,6 +1,15 @@
-from django.shortcuts import render_to_response
+from django.template import RequestContext, loader
 from django.http import HttpResponse
 # Create your views here.
 
-def index(request):
-	return HttpResponse("You're looking at poll %s." % 5)
+
+def index(request, table):
+
+    #return HttpResponse(response, mimetype="application/xml")
+    t = loader.get_template('index/select.html')
+    c = RequestContext(request, {'table': table})
+
+    return HttpResponse(
+        t.render(c), 
+        mimetype="application/xml"
+    )
