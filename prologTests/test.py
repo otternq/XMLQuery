@@ -4,4 +4,5 @@ prolog = Prolog()
 
 prolog.consult('family')
 
-list(prolog.query("siblings(X,Y)"))
+print(list(prolog.query("parent_of(Parent, Child)")))
+
