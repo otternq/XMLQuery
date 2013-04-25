@@ -1,35 +1,9 @@
 <?xml version="1.0" ?>
 <responses type="select" table="{{table}}">
-    <response>
-        <fields>
-            <field>
-                <name>id</name>
-                <value>1</value>
-            </field>
-            <field>
-                <name>parent</name>
-                <value>paul</value>
-            </field>
-            <field>
-                <name>child</name>
-                <value>nick</value>
-            </field>
-        </fields>
-    </response>
-    <response>
-        <fields>
-            <field>
-                <name>id</name>
-                <value>2</value>
-            </field>
-            <field>
-                <name>parent</name>
-                <value>paul</value>
-            </field>
-            <field>
-                <name>child</name>
-                <value>alex</value>
-            </field>
-        </fields>
-    </response>
+	{% for item in father %}
+	<response>
+		<parent>{{item.Y}}</parent>
+		<child>{{item.X}}</child>
+	</response>
+	{% endfor %}
 </responses>
