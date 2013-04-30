@@ -25,6 +25,8 @@ desc(I, X, Y, O) :- pEdges(I, X, Y).
 desc(I, X, Y, D) :- pEdges(I, X, Z), desc(I, Z, Y, L), D is L + 1.
 
 descAll(I, X, []).
-descAll(I, X, [Y|L]) :- desc(I,X, Y, D1), descAll(I, X, T),
-    not(desc(I, Y, H, D2), descAll(I, Y, T), D2 > D1),
+descAll(I, X, [Y|L]) :- desc(I,X, Y, D1), descAll(I, X, T).
+
+lca(I, X, [H|T]) :- desc(I, X, H, D1), descAll(I, X, T),
+    not(desc(I, Y, H, D2), descAll(I, Y, T), D2 < D1),
     distinct([H|T]), !.
