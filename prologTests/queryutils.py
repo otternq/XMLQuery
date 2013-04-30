@@ -22,16 +22,21 @@ def qtranslation(parentNode):
     return query
 
 
+def childListToString(childList):
+    str = ', '.join(childList)
+    return "[" + str + "]"
+
+
 def QueryConstruction(currentNode, s, parent):
 
-    childList = []
+    childList = list()
     cquery = ""
 
     for node in currentNode.findall('node'):
         print node
 
         if node.attrib['type'] == "leaf":
-            childList.append(node)
+            childList.append(node.attrib['nID'])
             #print node.find("edge")
         else:
             print "rec call"
@@ -45,7 +50,7 @@ def QueryConstruction(currentNode, s, parent):
 
     if len(childList) > 0:
         print "parAll"
-        cquery = "parAll(treeId, " + currentNode.attrib['nID'] + ", childList)"
+        cquery = "parAll(treeId, " + currentNode.attrib['nID'] + ", " + childListToString(childList) + ")"
 
     if (currentNode.attrib['type'] == 'root'):
         print "root"
