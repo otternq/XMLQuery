@@ -100,10 +100,14 @@ def QueryConstruction(currentNode, s, parent):
 
     s.append(cquery)
 
+    print s
+
 
 def main():
 
-    feed = open('test1.xml', 'r')
+    import sys
+
+    feed = open(sys.argv[1], 'r')
 
     tree = XML.parse(feed)
     root = tree.getroot()
@@ -112,7 +116,7 @@ def main():
 
     query = qtranslation(firstNode)
 
-    print query
+    print "\n\n" + query
 
 if __name__ == "__main__":
     main()
