@@ -105,6 +105,8 @@ def QueryConstruction(currentNode, s, parent):
 
 def main():
 
+    #nodes(V1, _), parAll(T, V1, [V3]), nodes(V3, bibionomorpha), ancall(T, V2, [V4]), nodes(V2, phoroidea), anc(T, V2, V6), lca(T, V6, [V7, V5, V8]), nodes(V7, muscoidea), nodes(V5, acalyptrata)
+
     import sys
 
     feed = open(sys.argv[1], 'r')

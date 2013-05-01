@@ -4,5 +4,7 @@ prolog = Prolog()
 
 prolog.consult('family')
 
-print(list(prolog.query("parent_of(Parent, Child)")))
+for item in  prolog.query("parent_of(Parent, Child)"):
+	print item["Parent"]
+
 

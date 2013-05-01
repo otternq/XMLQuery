@@ -1,4 +1,4 @@
-parAll(I, X, []).
+#parAll(I, X, []).
 parAll(I, X, []) :- pEdges(I, X, Y), parAll(I, X, L).
 
 anc(I, X, Y) :- pEdges(I, X, Y).
@@ -8,7 +8,7 @@ ancAll(I, X, Z, L) :- anc(I, X, Z), parAll(I, X, L).
 ancestor(X, Y) :- edge(X, Y).
 ancestor(X, Y) :- edge(X, Z), ancestor(Z, Y).
 
-ca(I, I, I).
+#ca(I, I, I).
 ca(I, J, K) :- ancestor(K, I), ancestor(K, J).
 
 nlca(I, J, K) :- ca(I, J, K), ca(I, J, L), ancestor(K, L).

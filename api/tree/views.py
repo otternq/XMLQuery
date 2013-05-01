@@ -8,7 +8,19 @@ from pyswip import Prolog
 
 def index(request, table):
 
+    import MySQLdb as db
+
+    conn = db.connect(host='localhost', user='prologuser', passwd='prologpass', db='prolog_test')
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT * FROM `children`')
+    result = cursor.fetchall()
+
     prolog = Prolog()
+
+    for row in result:
+        prolog.assertz("father("+ row[1]  +","+ row[2]  +")")
+
 
     prolog.consult('family')
 
