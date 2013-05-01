@@ -1,5 +1,3 @@
-/* functions that define a family relationship */
-/* taken from: http://www.cs.trincoll.edu/~ram/cpsc352/notes/prolog/factsrules.html */
 father_of(joe,paul).
 father_of(joe,mary).
 father_of(joe,hope).

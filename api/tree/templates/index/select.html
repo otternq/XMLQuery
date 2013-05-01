@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<responses type="select" table="{{table}}">
+	{% for item in father %}
+	<response>
+		<parent>{{item.Y}}</parent>
+		<child>{{item.X}}</child>
+	</response>
+	{% endfor %}
+</responses>

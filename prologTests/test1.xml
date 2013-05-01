@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<phylo pID="t1">
+    <node nID="1" type="root">
+        <node nID="2" type="node">
+            <edge>
+                <value>0.125</value>
+            </edge>
+        </node>
+        <node nID="3" type="leaf">
+            <genename>MYH16</genename>
+            <edge>
+                <value>0.262</value>
+            </edge>
+        </node>
+    </node>
+</phylo>
