@@ -1,6 +1,8 @@
 from django.template import RequestContext, loader
 from django.http import HttpResponse
 
+from queryutils import *
+
 from pyswip import Prolog
 
 # Create your views here.
@@ -17,35 +19,34 @@ def index(request, table):
 
     #prolog.consult('tree')
 
-
     prolog.assertz('hEdge(2,18,1)')
 
     cursor.execute('SELECT * FROM `children`')
     result = cursor.fetchall()
 
     for row in result:
-        prolog.assertz("father("+ str(row[1])  +","+ str(row[2])  +")")
+        prolog.assertz("father(" + str(row[1]) + "," + str(row[2]) + ")")
 
     cursor.execute('SELECT * FROM `root`')
     result = cursor.fetchall()
 
     for row in result:
-        prolog.assertz("root('"+ str(row[0])  +"','"+ str(row[1]) +"'," + str(row[2]) +")")
+        prolog.assertz("root('" + str(row[0]) + "','" + str(row[1]) + "'," + str(row[2]) + ")")
 
     cursor.execute('SELECT * FROM `node`')
     result = cursor.fetchall()
 
     for row in result:
-        prolog.assertz("node('"+ str(row[0])  +"','"+ str(row[1]) +"'," + str(row[2]) +")")
+        prolog.assertz("node('" + str(row[0]) + "','" + str(row[1]) + "'," + str(row[2]) + ")")
 
     cursor.execute('SELECT * FROM `pEdge`')
     result = cursor.fetchall()
-          
+
     for row in result:
-        if row[3] == 0: 
-            prolog.assertz("pEdge('"+ str(row[0])  +"','"+ str(row[1]) +"','" + str(row[2]) +"')")
+        if row[3] == 0:
+            prolog.assertz("pEdge('" + str(row[0]) + "','" + str(row[1]) + "','" + str(row[2]) + "')")
         else:
-            prolog.assertz("pEdge('"+ str(row[0])  +"','"+ str(row[1]) +"'," + str(row[2]) +",'"+str(row[3])+"')")
+            prolog.assertz("pEdge('" + str(row[0]) + "','" + str(row[1]) + "'," + str(row[2]) + ",'" + str(row[3]) + "')")
 
     prolog.consult('tree')
 
@@ -58,7 +59,7 @@ def index(request, table):
     c = RequestContext(request, {'table': table, 'father': result})
 
     res = HttpResponse(
-        t.render(c), 
+        t.render(c),
         mimetype="application/xml"
     )
 
