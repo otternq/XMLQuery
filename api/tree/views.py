@@ -21,8 +21,9 @@ def index(request, table):
     for row in result:
         prolog.assertz("father("+ row[1]  +","+ row[2]  +")")
 
-    prolog.consult('databaseFacts')
+    #prolog.consult('databaseFacts')
     prolog.consult('tree')
+    prolog.consult('databaseFacts')
 
     prolog.assertz("father(michael,john)")
     prolog.assertz("father(michael,gina)")
