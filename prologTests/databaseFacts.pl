@@ -1,101 +1,140 @@
 % Database
 
 % roots(treeID, nodeID, author, ...).
-% nodes(nodeID, nodename, ...).
-% pEdges(treeID, fromNodeID, toNodeID, edgename, ...).
+% node(treeID,nodeID, nodename, ...).
+% pEdge(treeID, fromNodeID, toNodeID, edgename, ...).
+% hEdge(treeID, fromNodeID, toNodeID, edgename, ...).
 
-% hEdges(treeID, fromNodeID, toNodeID, edgename, ...).
+% Root node/Trees
 
-% Root Nodes/Trees
+root(1,20,jamil).
+root(2,0,hasan).
+root(3,29,hasan).
 
-roots(1,20,jamil).
-roots(2,29,hasan).
+% Leaf nodes
 
-% Leaf Nodes
+node(1,1,acalyptrata).
+node(1,2,oestroidea).
+node(1,3,muscoidea).
+node(1,4,hippoboscoidea).
+node(1,5,syrphoidea).
+node(1,6,phoroidea).
+node(1,7,aschiza).
+node(1,8,emidoidea).
+node(1,9,asiloidea).
+node(1,10,nemastrinoidea).
+node(1,11,tabanomorpha).
+node(1,12,xylophagomorpha).
+node(1,13,stratiomyomorpha).
+node(1,14,tipuloidea).
+node(1,15,psychodomorpha).
+node(1,16,bibionomorpha).
+node(1,17,blephariceromorpha).
+node(1,18,culicomorpha).
+node(1,19,ptychopteromorpha).
 
-nodes(1,acalyptrata).
-nodes(2,oestroidea).
-nodes(3,muscoidea).
-nodes(4,hippoboscoidea).
-nodes(5,syrphoidea).
-nodes(6,phoroidea).
-nodes(7,aschiza).
-nodes(8,emidoidea).
-nodes(9,asiloidea).
-nodes(10,nemastrinoidea).
-nodes(11,tabanomorpha).
-nodes(12,xylophagomorpha).
-nodes(13,stratiomyomorpha).
-nodes(14,tipuloidea).
-nodes(15,psychodomorpha).
-nodes(16,bibionomorpha).
-nodes(17,blephariceromorpha).
-nodes(18,culicomorpha).
-nodes(19,ptychopteromorpha).
+% Internal nodes
 
-% Internal Nodes
-
-nodes(20,nematocera).
-nodes(21,brachycera).
-nodes(22,tabanomorpha).
-nodes(23,muscomorpha).
-nodes(24,eremoneura).
-nodes(25,cyclorrhapha).
-nodes(26,calypterata).
-nodes(27,schizophora).
+node(1,20,nematocera).
+node(1,21,brachycera).
+node(1,22,tabanomorpha).
+node(1,23,muscomorpha).
+node(1,24,eremoneura).
+node(1,25,cyclorrhapha).
+node(1,26,calypterata).
+node(1,27,schizophora).
 
 % Ancestral Edges
 
-pEdges(1,20,36).
-pEdges(1,20,35).
-pEdges(1,36,19).
-pEdges(1,36,18).
-pEdges(1,35,34).
-pEdges(1,35,17).
-pEdges(1,34,33).
-pEdges(1,34,16).
-pEdges(1,33,15).
-pEdges(1,33,32).
-pEdges(1,32,14).
-pEdges(1,32,21).
-pEdges(1,21,22).
-pEdges(1,21,23).
-pEdges(1,22,13).
-pEdges(1,22,31).
-pEdges(1,31,12).
-pEdges(1,31,11).
-pEdges(1,23,10).
-pEdges(1,23,30).
-pEdges(1,30,9).
-pEdges(1,30,24).
-pEdges(1,24,8).
-pEdges(1,24,25).
-pEdges(1,25,7).
-pEdges(1,25,29).
-pEdges(1,29,28).
-pEdges(1,29,6).
-pEdges(1,28,5).
-pEdges(1,28,27).
-pEdges(1,27,26).
-pEdges(1,27,1).
-pEdges(1,26,4).
-pEdges(1,26,37).
-pEdges(1,37,2).
-pEdges(1,37,3).
+pEdge(1,20,36).
+pEdge(1,20,35).
+pEdge(1,36,19).
+pEdge(1,36,18).
+pEdge(1,35,34).
+pEdge(1,35,17).
+pEdge(1,34,33).
+pEdge(1,34,16).
+pEdge(1,33,15).
+pEdge(1,33,32).
+pEdge(1,32,14).
+pEdge(1,32,21).
+pEdge(1,21,22).
+pEdge(1,21,23).
+pEdge(1,22,13).
+pEdge(1,22,31).
+pEdge(1,31,12).
+pEdge(1,31,11).
+pEdge(1,23,10).
+pEdge(1,23,30).
+pEdge(1,30,9).
+pEdge(1,30,24).
+pEdge(1,24,8).
+pEdge(1,24,25).
+pEdge(1,25,7).
+pEdge(1,25,29).
+pEdge(1,29,28).
+pEdge(1,29,6).
+pEdge(1,28,5).
+pEdge(1,28,27).
+pEdge(1,27,26).
+pEdge(1,27,1).
+pEdge(1,26,4).
+pEdge(1,26,37).
+pEdge(1,37,2).
+pEdge(1,37,3).
 
-pEdges(2,29,28).
-pEdges(2,29,6).
-pEdges(2,28,5).
+ 
 
-pEdges(2,28,27).
-pEdges(2,27,26).
-pEdges(2,27,1).
+pEdge(3,29,28).
+pEdge(3,29,6).
+pEdge(3,28,5).
+pEdge(3,28,27).
+pEdge(3,27,26).
+pEdge(3,27,1).
+pEdge(3,26,4).
+pEdge(3,26,37).
+pEdge(3,37,2).
+pEdge(3,37,3).
 
-pEdges(2,26,4).
-pEdges(2,26,37).
-pEdges(2,37,2).
+pEdge(2,0,1,0.262).
+pEdge(2,0,2,0.125).
+pEdge(2,2,3,0.332).
+pEdge(2,2,4,0.044).
+pEdge(2,4,5,0.231).
+pEdge(2,4,6,0.048).
+pEdge(2,6,7,0.074).
+pEdge(2,7,8,0.164).
+pEdge(2,7,9,0.041).
+pEdge(2,9,10,0.080).
+pEdge(2,9,17,0.148).
+pEdge(2,10,11,0.015).
+pEdge(2,10,14,0.014).
+pEdge(2,11,12,0.080).
+pEdge(2,11,13,0.077).
+pEdge(2,14,15,0.047).
+pEdge(2,14,16,0.038).
+pEdge(2,6,18,0.086).
+pEdge(2,18,19,0.035).
+pEdge(2,18,20,0.040).
 
-pEdges(2,37,3).
-
-
-% Horizontal Edges
+node(2,0,null).
+node(2,2,null).
+node(2,1,myh16).
+node(2,3,myh15).
+node(2,4,null).
+node(2,5,myh14).
+node(2,6,null).
+node(2,7,null).
+node(2,8,myh13).
+node(2,9,null).
+node(2,10,null).
+node(2,11,null).
+node(2,14,null).
+node(2,12,myh8).
+node(2,13,myh4).
+node(2,15,myh2).
+node(2,16,myh1).
+node(2,17,myh3).
+node(2,18,null).
+node(2,19,myh7).
+node(2,20,myh6).
