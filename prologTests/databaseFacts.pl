@@ -44,6 +44,28 @@ node(1,25,cyclorrhapha).
 node(1,26,calypterata).
 node(1,27,schizophora).
 
+node(2,0,null).
+node(2,2,null).
+node(2,1,myh16).
+node(2,3,myh15).
+node(2,4,null).
+node(2,5,myh14).
+node(2,6,null).
+node(2,7,null).
+node(2,8,myh13).
+node(2,9,null).
+node(2,10,null).
+node(2,11,null).
+node(2,14,null).
+node(2,12,myh8).
+node(2,13,myh4).
+node(2,15,myh2).
+node(2,16,myh1).
+node(2,17,myh3).
+node(2,18,null).
+node(2,19,myh7).
+node(2,20,myh6).
+
 % Ancestral Edges
 
 pEdge(1,20,36).
@@ -83,8 +105,6 @@ pEdge(1,26,37).
 pEdge(1,37,2).
 pEdge(1,37,3).
 
- 
-
 pEdge(3,29,28).
 pEdge(3,29,6).
 pEdge(3,28,5).
@@ -117,24 +137,3 @@ pEdge(2,6,18,0.086).
 pEdge(2,18,19,0.035).
 pEdge(2,18,20,0.040).
 
-node(2,0,null).
-node(2,2,null).
-node(2,1,myh16).
-node(2,3,myh15).
-node(2,4,null).
-node(2,5,myh14).
-node(2,6,null).
-node(2,7,null).
-node(2,8,myh13).
-node(2,9,null).
-node(2,10,null).
-node(2,11,null).
-node(2,14,null).
-node(2,12,myh8).
-node(2,13,myh4).
-node(2,15,myh2).
-node(2,16,myh1).
-node(2,17,myh3).
-node(2,18,null).
-node(2,19,myh7).
-node(2,20,myh6).
