@@ -7,9 +7,9 @@
 
 % Root node/Trees
 
-root(a,d,jamil).
-root(b,e,hasan).
-root(c,f,hasan).
+root(1,20,jamil).
+root(2,0,hasan).
+root(3,29,hasan).
 
 % Leaf nodes
 

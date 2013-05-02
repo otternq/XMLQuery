@@ -17,6 +17,9 @@ def index(request, table):
 
     #prolog.consult('tree')
 
+
+    prolog.assertz('hEdge(2,18,1)')
+
     cursor.execute('SELECT * FROM `children`')
     result = cursor.fetchall()
 
@@ -39,7 +42,10 @@ def index(request, table):
     result = cursor.fetchall()
           
     for row in result:
-        prolog.assertz("pEdge('"+ str(row[0])  +"','"+ str(row[1]) +"','" + str(row[2]) +"','"+ str(row[3]) +"')")
+        if row[3] == 0: 
+            prolog.assertz("pEdge('"+ str(row[0])  +"','"+ str(row[1]) +"','" + str(row[2]) +"')")
+        else:
+            prolog.assertz("pEdge('"+ str(row[0])  +"','"+ str(row[1]) +"'," + str(row[2]) +",'"+str(row[3])+"')")
 
     prolog.consult('tree')
 
@@ -51,8 +57,11 @@ def index(request, table):
     t = loader.get_template('index/select.html')
     c = RequestContext(request, {'table': table, 'father': result})
 
-
-    return HttpResponse(
+    res = HttpResponse(
         t.render(c), 
         mimetype="application/xml"
     )
+
+    res['Access-Control-Allow-Origin'] = "*"
+
+    return res

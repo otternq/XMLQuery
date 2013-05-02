@@ -1,9 +1,6 @@
 pEdge(T,X,Y) :- pEdge(T,X,Y,Z).
 
 % Horizontal Edges
-
-hEdge(2,18,1).
-
 % Axioms
 
 not(P,Q,R) :- call(P), call(Q),call(R),!, fail. 
