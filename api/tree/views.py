@@ -15,6 +15,8 @@ def index(request, table):
 
     prolog = Prolog()
 
+    #prolog.consult('tree')
+
     cursor.execute('SELECT * FROM `children`')
     result = cursor.fetchall()
 
@@ -37,14 +39,13 @@ def index(request, table):
     result = cursor.fetchall()
           
     for row in result:
-        if row[3] == 0:
-            prolog.assertz("pEdge('"+ str(row[0])  +"','"+ str(row[1]) +"','" + str(row[2]) +"')")
-        else:
-            prolog.assertz("pEdge('"+ str(row[0])  +"','"+ str(row[1]) +"','" + str(row[2]) +"','"+ str(row[3]) +"')")
+        prolog.assertz("pEdge('"+ str(row[0])  +"','"+ str(row[1]) +"','" + str(row[2]) +"','"+ str(row[3]) +"')")
 
-    #result = list(prolog.query("root('2',V1,_), parAll('2',V1,[V2,V3]), pEdge('2',V1,V3,'0.262'), node('2',V3,myh16), pEdge('2',V1,V2,'0.125'), ancAll('2',V2,V12,[V9,V4]), node('2',V4,myh7), hEdge('2',V12,V3), !"))
+    prolog.consult('tree')
 
-    result = list(prolog.query("parAll(X,Y,Z)"))
+    result = list(prolog.query("root('2',V1,_), parAll('2',V1,[V2,V3]), pEdge('2',V1,V3,'0.262'), node('2',V3,myh16), pEdge('2',V1,V2,'0.125'), ancAll('2',V2,V12,[V9,V4]), node('2',V4,myh7), hEdge('2',V12,V3), !"))
+
+    #result = list(prolog.query("parAll(X,Y,Z)"))
 
     #return HttpResponse(response, mimetype="application/xml")
     t = loader.get_template('index/select.html')
