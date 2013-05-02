@@ -2,8 +2,10 @@
 <responses type="select" table="{{table}}">
 	{% for item in father %}
 	<response>
-		<parent>{{item.Y}}</parent>
-		<child>{{item.X}}</child>
+		<x>{{item.Y}}</x>
+		<y>{{item.X}}</y>
+                <z>{{item.Z}}</z>
+                <a>{{item.A}}</a>
 	</response>
 	{% endfor %}
 </responses>
